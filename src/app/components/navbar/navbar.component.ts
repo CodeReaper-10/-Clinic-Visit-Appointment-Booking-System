@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   isSmallScreen = false;
   patientDetails = new PatientDetails('', '', '', '', '', '', '');
   patientFirstName = '';
+  logoPath = '../../../assets/logo/medical-appointment.png';
 
   constructor(private dialog: MatDialog, private snackBar: MatSnackBar, private breakpointObserver: BreakpointObserver, private patService: PatientService, private authService: AuthenticationService) {}
 
