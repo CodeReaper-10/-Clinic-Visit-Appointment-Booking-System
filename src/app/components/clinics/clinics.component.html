@@ -1,0 +1,45 @@
+<app-navbar>
+    <h1 class="header">Clinics</h1>
+    <div class="table-wrapper">
+        <div class="table-container rounded-table mat-elevation-z8" tabindex="0">
+            <div [class.centered-content]="isLoading">
+                <mat-progress-spinner mode="indeterminate" diameter="60" color="accent" *ngIf="isLoading"></mat-progress-spinner>
+            </div>
+            <table mat-table [dataSource]="clinics" *ngIf="!isLoading">
+                <!-- Clinic Name Column -->
+                <ng-container matColumnDef="clinicName">
+                    <th mat-header-cell *matHeaderCellDef>Clinic Name</th>
+                    <td mat-cell *matCellDef="let clinic">{{ clinic.clinicName }}</td>
+                </ng-container>
+                
+                <!-- Address Column -->
+                <ng-container matColumnDef="address">
+                    <th mat-header-cell *matHeaderCellDef>Address</th>
+                    <td mat-cell *matCellDef="let clinic">{{ clinic.address }}</td>
+                </ng-container>
+                
+                <!-- Service Time Column -->
+                <ng-container matColumnDef="serviceTime">
+                    <th mat-header-cell *matHeaderCellDef>Service Time</th>
+                    <td mat-cell *matCellDef="let clinic">
+                        {{ clinic.serviceTime.startDay | titlecase }} - {{ clinic.serviceTime.endDay | titlecase }}: {{ clinic.serviceTime.formattedStartTime }} - {{ clinic.serviceTime.formattedEndTime }} 
+                    </td>
+                </ng-container>
+
+                <!-- Choose Clinic Column -->
+                <ng-container matColumnDef="choose">
+                    <th mat-header-cell *matHeaderCellDef>Choose Clinic</th>
+                    <td mat-cell *matCellDef="let clinic">
+                        <button mat-mini-fab color="primary" (click)="openAppointmentConfirmationDialog(clinic)" [disabled]="receivedServiceData == null">
+                            <mat-icon>arrow_forward_ios</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns" class="hover-row"></tr>
+            </table>
+        </div>
+    </div>
+</app-navbar>
+<app-footer></app-footer>

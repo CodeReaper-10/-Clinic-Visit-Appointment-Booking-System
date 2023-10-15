@@ -1,0 +1,96 @@
+<app-navbar>
+    <div class="update-profile-container">
+        <mat-card class="update-profile-card">
+            <mat-card-header class="header">
+                <mat-card-title>Update your details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm)">
+                    <mat-form-field class="full-width" appearance="outline" color="accent">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" placeholder="Enter your current password" ngModel required #password="ngModel" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{0,}$" minlength="8" maxlength="15">
+                        <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.errors && (password.dirty || password.touched)">
+                            <ng-container *ngIf="password.hasError('required')">
+                                Password is required
+                            </ng-container>
+                            <ng-container *ngIf="password.hasError('minlength')  || password.hasError('maxlength') || password.errors?.['pattern']">
+                                Invalid password
+                                <br>
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width" appearance="outline" color="accent">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text" name="firstName" placeholder="Enter your first name" ngModel required #firstName="ngModel" minlength="2" maxlength="20">
+                        <mat-error *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                            <ng-container *ngIf="firstName.hasError('required')">
+                                First Name is required
+                            </ng-container>
+                            <ng-container *ngIf="firstName.hasError('minlength')">
+                                First Name length should be minimum 2 characters
+                            </ng-container>
+                            <ng-container *ngIf="firstName.hasError('maxlength')">
+                                First Name length should be maximum 20 characters
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline" color="accent">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" name="lastName" placeholder="Enter your last name" ngModel required #lastName="ngModel" minlength="2" maxlength="20">
+                        <mat-error *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                            <ng-container *ngIf="lastName.hasError('required')">
+                                Last Name is required
+                            </ng-container>
+                            <ng-container *ngIf="lastName.hasError('minlength')">
+                                Last Name length should be minimum 2 characters
+                            </ng-container>
+                            <ng-container *ngIf="lastName.hasError('maxlength')">
+                                Last Name length should be maximum 20 characters
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline" color="accent">
+                        <mat-label>Email ID</mat-label>
+                        <input matInput type="email" name="email" placeholder="Enter your email ID" ngModel required #email="ngModel" pattern="^(?!.*[@.]$)(?!.*[@.]{2,})(?!.*[!#$%&'*+\/=?^_`{|}-]{2,})([A-Za-z0-9](?:[A-Za-z0-9!#$%&'*+\/=?^_`{|}-]{0,62}[A-Za-z0-9])?)@([A-Za-z0-9-]{1,253}\.(com|net|org))$">
+                        <mat-error *ngIf="email.errors && (email.dirty || email.touched)">
+                            <ng-container *ngIf="email.hasError('required')">
+                                Email ID is required
+                            </ng-container>
+                            <ng-container *ngIf="email.errors?.['pattern']">
+                                Please adhere to the required Email ID constraints
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width" appearance="outline" color="accent">
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput name="dob" ngModel required #dob="ngModel" [matDatepicker]="picker">
+                        <mat-hint style="color: #b2b2b2;">MM/DD/YYYY</mat-hint>
+                        <mat-error *ngIf="dob.invalid && (dob.dirty || dob.touched)">Date of Birth is required</mat-error>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    
+                    <label style="color: #b2b2b2; font-size: 16px; padding-left: 8px;">Gender*</label>
+                    <br>
+                    <mat-radio-group class="radio-group" name="gender" ngModel required>
+                        <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender.id">{{ gender.value }}</mat-radio-button>
+                    </mat-radio-group>
+                    
+                    <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+                        <button mat-stroked-button color="warn" type="button" (click)="resetForm(updateForm)">Reset Form</button>
+                        <button mat-raised-button *ngIf="!isLoading" color="accent" type="submit" [disabled]="!updateForm.valid">Save Changes</button>
+                        <mat-progress-spinner mode="indeterminate" diameter="30" color="accent" *ngIf="isLoading"></mat-progress-spinner>
+                    </mat-card-actions>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</app-navbar>
+<app-footer></app-footer>

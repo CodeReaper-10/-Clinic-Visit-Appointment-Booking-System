@@ -1,0 +1,48 @@
+<app-navbar>
+    <h1 class="header">Appointment History</h1>
+    <div class="table-wrapper">
+        <div class="table-container rounded-table mat-elevation-z8" tabindex="0">
+            <div [class.centered-content]="noAppointmentHistory">
+                <mat-progress-spinner mode="indeterminate" diameter="60" color="accent" *ngIf="isLoading"></mat-progress-spinner>
+                <h3 *ngIf="noAppointmentHistory && !isLoading">No Appointment History</h3>
+            </div>
+            <table *ngIf="!noAppointmentHistory" mat-table [dataSource]="appointments" style="text-align: center;">
+                <!-- Clinic Name Column -->
+                <ng-container matColumnDef="clinicName">
+                    <th mat-header-cell *matHeaderCellDef>Clinic Name</th>
+                    <td mat-cell *matCellDef="let appointment">{{ appointment.clinicDetails.clinicName }}</td>
+                </ng-container>
+                
+                <!-- Service Column -->
+                <ng-container matColumnDef="service">
+                    <th mat-header-cell *matHeaderCellDef>Service</th>
+                    <td mat-cell *matCellDef="let appointment">{{ appointment.serviceDetails.serviceName }}</td>
+                </ng-container>
+                
+                <!-- Visit Status Column -->
+                <ng-container matColumnDef="visitStatus">
+                    <th mat-header-cell *matHeaderCellDef>Visit Status</th>
+                    <td mat-cell *matCellDef="let appointment">{{ appointment.status }}</td>
+                </ng-container>
+
+                <!-- Change Status Column -->
+                <ng-container matColumnDef="changeStatus">
+                    <th mat-header-cell *matHeaderCellDef>Change Status</th>
+                    <td mat-cell *matCellDef="let appointment">
+                        <mat-icon *ngIf="appointment.status === 'Visited' && !(appointment.id === selectedAppointmentId)" color="accent">task_alt</mat-icon>
+                        <button *ngIf="appointment.status === 'To be visited' && !(appointment.id === selectedAppointmentId)" mat-raised-button color="primary" (click)="openChangeVisitStatusConfirmationDialog(appointment)">
+                            Mark as Visited
+                        </button>
+                        <div class="spinner-container" *ngIf="appointment.id === selectedAppointmentId">
+                            <mat-progress-spinner mode="indeterminate" diameter="30" color="accent"></mat-progress-spinner>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns" class="hover-row" (click)="openAppointmentDetailsDialog($event, row)"></tr>
+            </table>
+        </div>
+    </div>
+</app-navbar>
+<app-footer></app-footer>

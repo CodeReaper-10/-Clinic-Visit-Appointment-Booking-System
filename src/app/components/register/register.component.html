@@ -1,0 +1,123 @@
+<div class="registration-container">
+    <mat-card class="registration-card">
+        <!-- <mat-card-header style="padding-bottom: 16px;">
+            <mat-card-title style="color: #6cf4ac;">Register</mat-card-title>
+        </mat-card-header> -->
+        <mat-card-content>
+            <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+                <mat-form-field class="full-width" appearance="outline" color="accent">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" name="username" placeholder="Enter your username" ngModel required #username="ngModel">
+                    <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">Username is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field [class.full-width]="!password.errors?.['pattern']" [class.full-width-with-error]="password.errors?.['pattern']" appearance="outline" color="accent">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" placeholder="Enter your password" ngModel required #password="ngModel" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{0,}$" minlength="8" maxlength="15">
+                    <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="password.errors && (password.dirty || password.touched)">
+                        <ng-container *ngIf="password.hasError('required')">
+                            Password is required
+                        </ng-container>
+                        <ng-container *ngIf="password.hasError('minlength')">
+                            Password length should be minimum 8 characters
+                        </ng-container>
+                        <ng-container *ngIf="password.hasError('maxlength')">
+                            Password length should be maximum 15 characters
+                        </ng-container>
+                        <ng-container *ngIf="password.errors?.['pattern']">
+                            Password should have at least one uppercase and one lowercase characters, one digit and, one special character
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field [class.full-width]="!confirmPassword.errors?.['pattern']" [class.full-width-with-error]="confirmPassword.errors?.['pattern']" appearance="outline" color="accent">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput [type]="hidePassword ? 'password' : 'text'" name="confirmPassword" placeholder="Confirm your password" ngModel required #confirmPassword="ngModel" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{0,}$" minlength="8" maxlength="15">
+                    <mat-error *ngIf="confirmPassword.errors && (confirmPassword.dirty || confirmPassword.touched)">
+                        <ng-container *ngIf="confirmPassword.hasError('required')">
+                            Confirm your password
+                        </ng-container>
+                        <ng-container *ngIf="confirmPassword.hasError('minlength')">
+                            Password length should be minimum 8 characters
+                        </ng-container>
+                        <ng-container *ngIf="confirmPassword.hasError('maxlength')">
+                            Password length should be maximum 15 characters
+                        </ng-container>
+                        <ng-container *ngIf="confirmPassword.errors?.['pattern']">
+                            Password should have at least one uppercase and one lowercase characters, one digit and, one special character
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" color="accent">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" name="firstName" placeholder="Enter your first name" ngModel required #firstName="ngModel" minlength="2" maxlength="20">
+                    <mat-error *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                        <ng-container *ngIf="firstName.hasError('required')">
+                            First Name is required
+                        </ng-container>
+                        <ng-container *ngIf="firstName.hasError('minlength')">
+                            First Name length should be minimum 2 characters
+                        </ng-container>
+                        <ng-container *ngIf="firstName.hasError('maxlength')">
+                            First Name length should be maximum 20 characters
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" color="accent">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" name="lastName" placeholder="Enter your last name" ngModel required #lastName="ngModel" minlength="2" maxlength="20">
+                    <mat-error *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                        <ng-container *ngIf="lastName.hasError('required')">
+                            Last Name is required
+                        </ng-container>
+                        <ng-container *ngIf="lastName.hasError('minlength')">
+                            Last Name length should be minimum 2 characters
+                        </ng-container>
+                        <ng-container *ngIf="lastName.hasError('maxlength')">
+                            Last Name length should be maximum 20 characters
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" color="accent">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput type="email" name="email" placeholder="Enter your email ID" ngModel required #email="ngModel" pattern="^(?!.*?[\W_]{2})(?=^[a-zA-Z0-9])(?=.*[a-zA-Z0-9]$)[\w!#$%&'*+\-/=?^`{|]{2,64}@([a-zA-Z0-9]{1,253}\.)+(com|org|net)$">
+                    <mat-error *ngIf="email.errors && (email.dirty || email.touched)">
+                        <ng-container *ngIf="email.hasError('required')">
+                            Email ID is required
+                        </ng-container>
+                        <ng-container *ngIf="email.errors?.['pattern']">
+                            Please adhere to the required Email ID constraints
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" color="accent">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput name="dob" ngModel required #dob="ngModel" [matDatepicker]="picker">
+                    <mat-hint style="color: #b2b2b2;">MM/DD/YYYY</mat-hint>
+                    <mat-error *ngIf="dob.invalid && (dob.dirty || dob.touched)">Date of Birth is required</mat-error>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <label class="gender-label">Gender*</label>
+                <br>
+                <mat-radio-group class="radio-group" name="gender" ngModel required>
+                    <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender.id">{{ gender.value }}</mat-radio-button>
+                </mat-radio-group>
+                
+                <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-stroked-button color="warn" type="button" (click)="resetForm(registrationForm)">Reset Form</button>
+                    <button mat-raised-button *ngIf="!isLoading" color="accent" type="submit" [disabled]="!registrationForm.valid">Join Now</button>
+                    <mat-progress-spinner mode="indeterminate" diameter="30" color="accent" *ngIf="isLoading"></mat-progress-spinner>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

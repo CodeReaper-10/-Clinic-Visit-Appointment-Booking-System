@@ -1,0 +1,24 @@
+.home-page {
+    height: calc(100vh - 114px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../assets/background/bookBg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.button-container {
+    margin-top: 30px;
+}
+
+.centered-content {
+    text-align: center;
+    color: #6A5ACD;
+    text-shadow: 0 0 10px rgba(106, 90, 205, 0.8);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 32px;
+    margin: 0 0 16px;
+}

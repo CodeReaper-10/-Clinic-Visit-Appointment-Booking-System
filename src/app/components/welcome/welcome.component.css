@@ -1,0 +1,40 @@
+/* Add this to your welcome.component.css */
+.card-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* height: 100vh; */
+}
+
+.welcome-card {
+    max-width: 450px; /* Adjust the width as needed */
+    width: 100%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin: 0 auto; /* Center the card horizontally */
+    padding: 20px 20px 0 20px; /* Add internal padding */
+    overflow: hidden; /* Hide any content overflowing outside the card */
+}
+
+  /* Adjust tab content height to fit within the card */
+.mat-tab-body-content {
+    max-height: calc(100vh - 240px); /* Adjust as needed based on your content */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+  /* Adjust tab labels to fit within the card */
+.mat-tab-labels {
+    overflow-x: auto; /* Enable horizontal scrolling for tab labels if needed */
+}
+
+  /* Adjust tab header height and width to fit within the card */
+.mat-tab-header {
+    max-height: 60px; /* Adjust as needed */
+    overflow-x: auto; /* Enable horizontal scrolling for tab headers if needed */
+}
+
+@media screen and (max-width: 575px) {
+  .card-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

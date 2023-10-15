@@ -1,0 +1,33 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <!-- <mat-card-header style="padding-bottom: 16px;">
+      <mat-card-title style="color: #6cf4ac;">Login</mat-card-title>
+    </mat-card-header> -->
+    <mat-card-content>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <mat-form-field class="full-width" appearance="outline" color="accent">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" name="username" placeholder="Enter your username" ngModel required #username="ngModel">
+          <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">Username is required</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width" appearance="outline" color="accent">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" placeholder="Enter your password" ngModel required #password="ngModel">
+          <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">Password is required</mat-error>
+          <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        
+        <div class="forgot-password-container">
+          <button type="button" mat-button class="forgot-password-button" (click)="forgotPassword()">Forgot Password?</button>
+        </div>
+        <mat-card-actions align="end">
+          <button mat-raised-button *ngIf="!isLoading" color="accent" type="submit" [disabled]="!loginForm.valid">Login</button>
+          <mat-progress-spinner mode="indeterminate" diameter="30" color="accent" *ngIf="isLoading"></mat-progress-spinner>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

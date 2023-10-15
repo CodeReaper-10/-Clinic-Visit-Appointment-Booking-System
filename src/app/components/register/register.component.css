@@ -1,0 +1,45 @@
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 20px;
+    transition: margin-bottom 0.15s ease;
+}
+
+.full-width-with-error {
+    width: 100%;
+    margin-bottom: 50px;
+    transition: margin-bottom 0.15s ease;
+}
+
+.gender-label {
+    color: #b2b2b2;
+    font-size: 17px;
+    padding-left: 8px;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 0;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+@media screen and (max-width: 280px) {
+    .registration-card {
+        max-width: 270px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .full-width-with-error {
+        margin-bottom: 85px;
+    }
+}

@@ -1,0 +1,14 @@
+<div class="confirmation-dialog-container">
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+    <div mat-dialog-content>
+        <p>{{ data.content }}</p>
+    </div>
+    <div mat-dialog-actions class="button-container">
+        <button mat-mini-fab color="warn" matTooltip="Cancel" (click)="onCancelClick()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" matTooltip="Confirm" (click)="onConfirmClick()">
+            <mat-icon>check_circle</mat-icon>
+        </button>
+    </div>
+</div>

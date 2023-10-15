@@ -1,0 +1,92 @@
+.header {
+    color: #6cf4ac;
+    text-align: center;
+    font-size: 26px;
+    margin-top: 30px;
+}
+
+.table-wrapper {
+    max-width: 900px; /* Adjust the maximum width as needed */
+    width: 100%;
+    margin: auto;
+    padding-top: 15px;
+}
+
+.table-container {
+    height: 580px;
+    overflow: auto;
+    padding: 0;
+}
+
+.table-container.rounded-table {
+    border-radius: 15px;
+}
+
+table th, table td {
+    text-align: center;
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+table {
+    background-color: #003333;
+}
+
+.hover-row:hover {
+    cursor: pointer;
+    background-color: #006666 !important; /* Use the desired darker color */
+    transition: background-color 0.2s; /* Add a smooth transition effect */
+}
+
+@media screen and (max-width: 575px) {
+    .header {
+        margin-top: 20px;
+    }
+
+    .table-container {
+        height: 750px;
+    }
+
+    .table-wrapper {
+        max-width: 400px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-height: 745px) {
+    .table-container {
+        height: 560px;
+    }
+}
+
+/* Scrollbar for Chrome, Edge */
+.table-container::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+/* Style the scrollbar thumb */
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #b2b2b2;
+    border-radius:15px;
+}
+
+/* Style the scrollbar on hover (optional) */
+.table-container:hover::-webkit-scrollbar-thumb {
+    background-color: #8f8f8f; /* Change the color on hover if desired */
+}

@@ -1,0 +1,53 @@
+.header {
+    color: #6cf4ac;
+    text-align: center;
+    font-size: 26px;
+    margin-top: 30px;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 26px;
+    margin: 0 auto;
+    /* margin-top: 50px; */
+    padding: 15px;
+    max-width: 780px; /* Adjust the maximum width as needed */
+}
+
+.service-card {
+    width: 225px; /* Adjust the card width as needed */
+    background: #fbfbdc;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.service-card:hover {
+    cursor: pointer;
+    transform: scale(1.05); /* Scale up the card slightly on hover */
+    background-color: #a5acf4; /* Change the background color on hover */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for elevation */
+}
+
+.card-image {
+    max-width: 80%; /* Reduce the maximum width of the images to half */
+    display: block;
+    margin: 0 auto; /* Center the images */
+}
+
+mat-card-content {
+    padding: 16px; /* Increase padding for card content */
+    text-align: center; /* Center-align text in card content */
+    color:#006400
+}
+
+.card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-description {
+    font-size: 1rem;
+    font-style: italic;
+}

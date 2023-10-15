@@ -1,0 +1,17 @@
+<div class="register-login-container">
+    <h2 mat-dialog-title>Register / Login</h2>
+    <div mat-dialog-content>
+        <p>New user? Register now!</p>
+        <p>Existing user? Login to join us back!</p>
+    </div>
+    <div mat-dialog-actions class="button-container">
+        <button mat-raised-button color="primary" (click)="onRegisterClick()">
+            <mat-icon>app_registration</mat-icon>
+            Register
+        </button>
+        <button mat-raised-button color="accent" (click)="onLoginClick()">
+            <mat-icon>login</mat-icon>
+            Login
+        </button>
+    </div>
+</div>

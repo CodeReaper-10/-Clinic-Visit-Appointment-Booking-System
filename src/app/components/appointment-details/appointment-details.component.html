@@ -1,0 +1,16 @@
+<div mat-dialog-actions class="close-button-container">
+    <button mat-icon-button class="close-button" color="warn" matTooltip="Close" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<h2 mat-dialog-title class="header">Appointment Details</h2>
+<div mat-dialog-content>
+    <p><strong>Name:</strong> {{ appointment.firstName }} {{ appointment.lastName }} </p>
+    <p><strong>Clinic Name:</strong> {{ appointment.clinicDetails.clinicName }}</p>
+    <p><strong>Address:</strong> {{ appointment.clinicDetails.address }}</p>
+    <p><strong>Service Time:</strong>
+        {{ appointment.clinicDetails.serviceTime.startDay | titlecase }} - {{ appointment.clinicDetails.serviceTime.endDay | titlecase }}: {{ appointment.clinicDetails.serviceTime.formattedStartTime }} - {{ appointment.clinicDetails.serviceTime.formattedEndTime }} </p>
+    <p><strong>Service:</strong> {{ appointment.serviceDetails.serviceName }}</p>
+    <p><strong>Visit Status:</strong> {{ appointment.status }}</p>
+</div>

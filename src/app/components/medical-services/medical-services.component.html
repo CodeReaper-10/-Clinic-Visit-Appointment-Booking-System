@@ -1,0 +1,16 @@
+<app-navbar>
+    <h1 class="header">Available Services</h1>
+    <div class="service-container">
+        <mat-progress-spinner mode="indeterminate" diameter="60" color="accent" *ngIf="isLoading"></mat-progress-spinner>
+        <mat-card class="service-card" *ngFor="let service of services" (click)="navigateToClinics(service)">
+            <mat-card-header>
+                <img [src]="service.imageUrl" alt="{{ service.serviceName }}" class="card-image">
+            </mat-card-header>
+            <mat-card-content>
+                <p class="card-header">{{ service.serviceName }}</p>
+                <p class="card-description">{{ service.description }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</app-navbar>
+<app-footer></app-footer>

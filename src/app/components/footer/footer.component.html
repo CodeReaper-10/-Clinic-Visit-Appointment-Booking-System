@@ -1,0 +1,19 @@
+<footer class="mat-elevation-z2">
+    <div class="footer-content">
+        <div class="footer-left">
+            <!-- Company logo -->
+            <a href="https://www.cognizant.com/in/en" target="_blank">
+                <img *ngIf="!isSmallScreen" src="assets/logo/companyLogo.png" alt="Company Logo">
+                <img *ngIf="isSmallScreen" src="assets/logo/companyLogoSmall.png" alt="Company Logo">
+            </a>
+        </div>
+        <div class="footer-center">
+            <!-- Copyright text -->
+            &copy; 2023 Copyright Adipta Santra
+        </div>
+        <div class="footer-right">
+            <!-- About Us button -->
+            <a mat-button href="https://www.cognizant.com/us/en/about-cognizant" target="_blank">About Us</a>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,45 @@
+.update-profile-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-profile-card {
+    max-width: 550px;
+}
+
+.header {
+    padding-bottom: 16px;
+    color: #6cf4ac;
+    justify-content: center;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 20px;
+    transition: margin-bottom 0.15s ease;
+}
+
+.full-width-with-error {
+    width: 100%;
+    margin-bottom: 45px;
+    transition: margin-bottom 0.15s ease;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 0;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+@media screen and (max-width: 280px) {
+    .update-profile-card {
+        max-width: 270px;
+    }
+}

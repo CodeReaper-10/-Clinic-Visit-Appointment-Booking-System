@@ -1,0 +1,21 @@
+<div mat-dialog-actions class="close-button-container">
+    <button mat-icon-button class="close-button" color="warn" matTooltip="Close" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<h2 mat-dialog-title class="header">Profile Details</h2>
+<div mat-dialog-content>
+    <p><strong>Name:</strong> {{ profile.firstName }} {{ profile.lastName }} </p>
+    <p><strong>Username:</strong> {{ profile.username }}</p>
+    <p><strong>Email ID:</strong> {{ profile.email }}</p>
+    <p><strong>Date of Birth:</strong> {{ profile.dob }}</p>
+    <p><strong>Gender:</strong> {{ showGender }}</p>
+</div>
+
+<div mat-dialog-actions class="delete-button-container">
+    <button mat-raised-button color="warn" (click)="onDeleteClick()">
+        <mat-icon>delete_forever</mat-icon>
+        Delete Profile
+    </button>
+</div>

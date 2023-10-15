@@ -1,0 +1,25 @@
+.mat-elevation-z2 {
+    background-color: #36454F; /* Set your desired background color */
+    color: white; /* Text color */
+    padding: 7px; /* Adjust padding as needed */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-left img {
+    max-height: 25px; /* Adjust the logo size as needed */
+}
+
+@media screen and (max-width: 575px) {
+    .mat-elevation-z2 {
+        padding: 11px; /* Adjust padding as needed */
+    }
+}

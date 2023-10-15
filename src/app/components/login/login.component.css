@@ -1,0 +1,20 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.forgot-password-container {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 280px) {
+    .login-card {
+        max-width: 270px;
+    }
+}

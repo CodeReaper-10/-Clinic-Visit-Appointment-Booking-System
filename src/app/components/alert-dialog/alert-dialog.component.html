@@ -1,0 +1,10 @@
+<div class="alert-dialog-container">
+    <h2 mat-dialog-title>
+        <mat-icon class="icon" color="warn">error</mat-icon>
+        {{ error.status }} Error
+    </h2>
+    <div mat-dialog-content>
+        <p>{{ error.error }}</p>
+    </div>
+</div>
+<mat-progress-bar mode="buffer" [bufferValue]="buffer" [value]="progress" color="warn"></mat-progress-bar>

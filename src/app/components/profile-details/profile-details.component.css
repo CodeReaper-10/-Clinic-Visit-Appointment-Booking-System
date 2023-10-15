@@ -1,0 +1,14 @@
+.close-button {
+    position: absolute; /* Position absolutely within the relative container */
+    top: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+}
+
+.header {
+    text-align: center;
+}
+
+.delete-button-container {
+    display: flex;
+    justify-content: center;
+}

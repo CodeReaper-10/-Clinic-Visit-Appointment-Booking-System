@@ -1,0 +1,33 @@
+.user-menu {
+    margin-left: auto;
+}
+
+.user-greeting {
+    text-align: center;
+    padding: 16px; /* Padding for spacing */
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.sidenav-container {
+    height: calc(100vh - 114px);
+}
+
+.nav-button-container {
+    margin-left: 15px;
+}
+
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 8px; /* Margin for spacing between the icon and text */
+}
+
+.link-text {
+    vertical-align: middle;
+}
