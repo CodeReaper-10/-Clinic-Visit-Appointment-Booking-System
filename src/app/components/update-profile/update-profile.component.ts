@@ -55,10 +55,10 @@ export class UpdateProfileComponent {
           next: (response) => {
             this.openSnackBar(response, "OK");
             this.router.navigate(['/home']);
-            this.isLoading = true;
+            this.isLoading = false;
           },
           error: (error) => {
-            this.isLoading = true;
+            this.isLoading = false;
             this.showAlert(error);
           }
         });
