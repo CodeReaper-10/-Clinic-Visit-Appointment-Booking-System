@@ -129,6 +129,9 @@ export class ForgotPasswordComponent {
             this.openSnackBar("Too many invalid attempts.", "OK");
             this.router.navigate(['/login']);
           }
+          else if (error.error === "Expired OTP.") {
+            this.router.navigate(['/login']);
+          }
           this.showAlert(error);
           this.isLoading = false;
         }
