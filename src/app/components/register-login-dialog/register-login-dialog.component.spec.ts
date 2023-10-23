@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterLoginDialogComponent } from './register-login-dialog.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('RegisterLoginDialogComponent', () => {
   let component: RegisterLoginDialogComponent;
@@ -8,7 +10,11 @@ describe('RegisterLoginDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterLoginDialogComponent ]
+      imports: [ 
+        MatIconModule
+      ],
+      declarations: [ RegisterLoginDialogComponent ],
+      providers: [ { provide: MatDialogRef, useValue: {} } ]
     })
     .compileComponents();
 

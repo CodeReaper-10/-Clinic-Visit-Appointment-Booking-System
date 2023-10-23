@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AlertDialogComponent } from './alert-dialog.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 describe('AlertDialogComponent', () => {
   let component: AlertDialogComponent;
@@ -8,7 +11,12 @@ describe('AlertDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlertDialogComponent ]
+      imports: [ 
+        MatIconModule,
+        MatProgressBarModule
+      ],
+      declarations: [ AlertDialogComponent ],
+      providers: [ { provide: MAT_DIALOG_DATA, useValue: {} } ]
     })
     .compileComponents();
 

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileDetailsComponent } from './profile-details.component';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('ProfileDetailsComponent', () => {
   let component: ProfileDetailsComponent;
@@ -8,7 +10,15 @@ describe('ProfileDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileDetailsComponent ]
+      imports: [ 
+        MatDialogModule,
+        MatIconModule
+      ],
+      declarations: [ ProfileDetailsComponent ],
+      providers: [ 
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} }
+      ]
     })
     .compileComponents();
 
